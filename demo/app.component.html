@@ -1,0 +1,93 @@
+<main class="container">
+    <div class="page-header">
+        <h1>Angular2 datetime component
+            <small>v1.0.0</small>
+        </h1>
+    </div>
+    <section>
+        <h3>Dependencies:</h3>
+        <ul>
+            <li>
+                <a href="http://getbootstrap.com/" target="_blank">Bootstrap3 <strong>(CSS only)</strong></a>
+            </li>
+            <li>
+                <a href="http://jquery.com/" target="_blank">jQuery 2.x</a>
+            </li>
+            <li>
+                <a href="http://jdewit.github.io/bootstrap-timepicker/" target="_blank">
+                    Bootstrap-timepicker <strong>(JS+CSS)</strong>
+                </a> (version included in src files)
+            </li>
+            <li>
+                <a href="http://eternicode.github.io/bootstrap-datepicker/" target="_blank">
+                    Bootstrap-datepicker <strong>(JS+CSS)</strong>
+                </a> (version included in src files)
+            </li>
+        </ul>
+    </section>
+    <hr>
+    <section class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                Default behaviour (plugins default options)
+            </h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                <code>&lt;datetime [(ngModel)]="date">&lt;/datetime></code>
+            </p>
+            <datetime [(ngModel)]="date"></datetime>
+            <h5><strong>ngModel:</strong> {{getDate(date) | date: "medium"}}</h5>
+        </div>
+    </section>
+    <section class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                Timepicker options
+                <a href="http://jdewit.github.io/bootstrap-timepicker/" target="_blank">
+                    (see all)
+                </a>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                <code>&lt;datetime [timepicker]="{showMeridian: false, minuteStep: 1}"
+                    [(ngModel)]="date2">&lt;/datetime></code>
+            </p>
+            <datetime [(ngModel)]="date2" [timepicker]="{showMeridian: false, minuteStep: 1}"></datetime>
+            <h5><strong>ngModel:</strong> {{getDate(date2) | date: "medium"}}</h5>
+        </div>
+    </section>
+    <section class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                Datepicker options
+                <a href="http://bootstrap-datepicker.readthedocs.org/en/latest/options.html" target="_blank">
+                    (see all)
+                </a>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                <code>&lt;datetime [datepicker]="{daysOfWeekDisabled: [0,6]}"
+                    [(ngModel)]="date3">&lt;/datetime></code>
+            </p>
+            <datetime [(ngModel)]="date3" [datepicker]="{daysOfWeekDisabled: [0,6]}"></datetime>
+            <h5><strong>ngModel:</strong> {{getDate(date3) | date: "medium"}}</h5>
+        </div>
+    </section>
+    <section class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                Empty model (date4 === undefined)
+            </h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                <code>&lt;datetime (ngModel)]="date4">&lt;/datetime></code>
+            </p>
+            <datetime [(ngModel)]="date4"></datetime>
+            <h5><strong>ngModel:</strong> {{getDate(date4) | date: "medium"}}</h5>
+        </div>
+    </section>
+</main>
