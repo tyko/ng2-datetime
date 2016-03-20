@@ -70,7 +70,7 @@ export class NKDatetime implements ControlValueAccessor, OnInit {
     //////////////////////////////////
 
     private init() {
-        if (!this.datepicker) {
+        if (!this.datepicker && this.datepickerOptions !== false) {
             this.datepicker = (<any>$('#' + this.idDatePicker)).datepicker(this.datepickerOptions);
             this.datepicker
                 .on('changeDate', (e) => {

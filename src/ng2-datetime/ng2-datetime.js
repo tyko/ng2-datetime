@@ -47,7 +47,7 @@ var NKDatetime = (function () {
     //////////////////////////////////
     NKDatetime.prototype.init = function () {
         var _this = this;
-        if (!this.datepicker) {
+        if (!this.datepicker && this.datepickerOptions !== false) {
             this.datepicker = $('#' + this.idDatePicker).datepicker(this.datepickerOptions);
             this.datepicker
                 .on('changeDate', function (e) {
