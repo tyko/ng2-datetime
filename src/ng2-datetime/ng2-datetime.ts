@@ -110,7 +110,10 @@ export class NKDatetime implements ControlValueAccessor, OnInit {
                     }
                     if (!isDate(this.date)) {
                         this.date = new Date();
-                        this.datepicker.datepicker('update', this.date);
+
+                        if (this.datepicker !== undefined) {
+                            this.datepicker.datepicker('update', this.date);
+                        }
                     }
                     this.date.setHours(parseInt(hours));
                     this.date.setMinutes(e.time.minutes);

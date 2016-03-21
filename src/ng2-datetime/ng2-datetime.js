@@ -85,7 +85,9 @@ var NKDatetime = (function () {
                 }
                 if (!isDate(_this.date)) {
                     _this.date = new Date();
-                    _this.datepicker.datepicker('update', _this.date);
+                    if (_this.datepicker !== undefined) {
+                        _this.datepicker.datepicker('update', _this.date);
+                    }
                 }
                 _this.date.setHours(parseInt(hours));
                 _this.date.setMinutes(e.time.minutes);
