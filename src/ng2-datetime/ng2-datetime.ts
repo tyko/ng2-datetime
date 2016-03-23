@@ -88,7 +88,7 @@ export class NKDatetime implements ControlValueAccessor, OnInit {
                     this.dateChange.emit(newDate);
                 });
         } else if (this.datepickerOptions === false) {
-            (<any>$('#' + this.idDatePicker)).parent().remove();
+            (<any>$('#' + this.idDatePicker)).remove();
         }
 
         if (!this.timepicker && this.timepickerOptions !== false) {

@@ -64,7 +64,7 @@ var NKDatetime = (function () {
             });
         }
         else if (this.datepickerOptions === false) {
-            $('#' + this.idDatePicker).parent().remove();
+            $('#' + this.idDatePicker).remove();
         }
         if (!this.timepicker && this.timepickerOptions !== false) {
             var options = jQuery.extend({ defaultTime: false }, this.timepickerOptions);
