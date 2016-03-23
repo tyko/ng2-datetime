@@ -75,10 +75,10 @@ var NKDatetime = (function () {
                 var hours = e.time.hours;
                 if (meridian) {
                     // has meridian -> convert 12 to 24h
-                    if (meridian == "PM" && hours < 12) {
+                    if (meridian === 'PM' && hours < 12) {
                         hours = hours + 12;
                     }
-                    if (meridian == "AM" && hours == 12) {
+                    if (meridian === 'AM' && hours === 12) {
                         hours = hours - 12;
                     }
                     hours = _this.pad(hours);
@@ -86,7 +86,7 @@ var NKDatetime = (function () {
                 if (!isDate(_this.date)) {
                     _this.date = new Date();
                     if (_this.datepicker !== undefined) {
-                        _this.datepicker.datepicker('update', _this.date);
+                        _this.datepicker.datepicker('update', _this.date.toLocaleDateString('en-US'));
                     }
                 }
                 _this.date.setHours(parseInt(hours));
@@ -101,7 +101,7 @@ var NKDatetime = (function () {
     NKDatetime.prototype.updateModel = function (date) {
         // update date
         if (this.datepicker !== undefined) {
-            this.datepicker.datepicker('update', date);
+            this.datepicker.datepicker('update', date.toLocaleDateString('en-US'));
         }
         // update time
         if (this.timepicker !== undefined) {

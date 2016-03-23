@@ -100,10 +100,10 @@ export class NKDatetime implements ControlValueAccessor, OnInit {
                     let hours = e.time.hours;
                     if (meridian) {
                         // has meridian -> convert 12 to 24h
-                        if (meridian == "PM" && hours < 12) {
+                        if (meridian === 'PM' && hours < 12) {
                             hours = hours + 12;
                         }
-                        if (meridian == "AM" && hours == 12) {
+                        if (meridian === 'AM' && hours === 12) {
                             hours = hours - 12;
                         }
                         hours = this.pad(hours);
@@ -112,7 +112,7 @@ export class NKDatetime implements ControlValueAccessor, OnInit {
                         this.date = new Date();
 
                         if (this.datepicker !== undefined) {
-                            this.datepicker.datepicker('update', this.date);
+                            this.datepicker.datepicker('update', this.date.toLocaleDateString('en-US'));
                         }
                     }
                     this.date.setHours(parseInt(hours));
@@ -127,7 +127,7 @@ export class NKDatetime implements ControlValueAccessor, OnInit {
     private updateModel(date?:Date) {
         // update date
         if (this.datepicker !== undefined) {
-            this.datepicker.datepicker('update', date);
+            this.datepicker.datepicker('update', date.toLocaleDateString('en-US'));
         }
 
         // update time
