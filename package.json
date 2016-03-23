@@ -1,6 +1,6 @@
 {
   "name": "ng2-datetime",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bootstrap datetime picker for Angular2",
   "main": "ng2-datetime.js",
   "keywords": [
