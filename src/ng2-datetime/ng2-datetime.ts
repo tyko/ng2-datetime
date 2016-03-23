@@ -70,7 +70,7 @@ export class NKDatetime implements ControlValueAccessor, OnInit {
     //////////////////////////////////
 
     private init() {
-        if (!this.datepicker) {
+        if (!this.datepicker && this.datepickerOptions !== false) {
             this.datepicker = (<any>$('#' + this.idDatePicker)).datepicker(this.datepickerOptions);
             this.datepicker
                 .on('changeDate', (e) => {
@@ -87,8 +87,11 @@ export class NKDatetime implements ControlValueAccessor, OnInit {
                     this.date = newDate;
                     this.dateChange.emit(newDate);
                 });
+        } else if (this.datepickerOptions === false) {
+            (<any>$('#' + this.idDatePicker)).remove();
         }
-        if (!this.timepicker) {
+
+        if (!this.timepicker && this.timepickerOptions !== false) {
             let options = jQuery.extend({defaultTime: false}, this.timepickerOptions);
             this.timepicker = (<any>$('#' + this.idTimePicker)).timepicker(options);
             this.timepicker
@@ -107,28 +110,37 @@ export class NKDatetime implements ControlValueAccessor, OnInit {
                     }
                     if (!isDate(this.date)) {
                         this.date = new Date();
-                        this.datepicker.datepicker('update', this.date.toLocaleDateString('en'));
+
+                        if (this.datepicker !== undefined) {
+                            this.datepicker.datepicker('update', this.date);
+                        }
                     }
                     this.date.setHours(parseInt(hours));
                     this.date.setMinutes(e.time.minutes);
                     this.dateChange.emit(this.date);
                 });
+        } else if (this.timepickerOptions === false) {
+            (<any>$('#' + this.idTimePicker)).parent().remove();
         }
     }
 
     private updateModel(date?:Date) {
         // update date
-        this.datepicker.datepicker('update', date.toLocaleDateString('en'));
+        if (this.datepicker !== undefined) {
+            this.datepicker.datepicker('update', date);
+        }
 
         // update time
-        let hours = this.date.getHours();
-        if (this.timepickerOptions.showMeridian) {
-            // Convert 24 to 12 hour system
-            hours = (hours === 0 || hours === 12) ? 12 : hours % 12;
-        }
-        let meridian = this.date.getHours() >= 12 ? ' PM' : ' AM';
+        if (this.timepicker !== undefined) {
+            let hours = this.date.getHours();
+            if (this.timepickerOptions.showMeridian) {
+                // Convert 24 to 12 hour system
+                hours = (hours === 0 || hours === 12) ? 12 : hours % 12;
+            }
+            let meridian = this.date.getHours() >= 12 ? ' PM' : ' AM';
 
-        this.timepicker.timepicker('setTime', this.pad(hours) + ':' + this.date.getMinutes() + meridian);
+            this.timepicker.timepicker('setTime', this.pad(hours) + ':' + this.date.getMinutes() + meridian);
+        }
     }
 
     private pad(value:any) {

@@ -47,7 +47,7 @@ var NKDatetime = (function () {
     //////////////////////////////////
     NKDatetime.prototype.init = function () {
         var _this = this;
-        if (!this.datepicker) {
+        if (!this.datepicker && this.datepickerOptions !== false) {
             this.datepicker = $('#' + this.idDatePicker).datepicker(this.datepickerOptions);
             this.datepicker
                 .on('changeDate', function (e) {
@@ -63,7 +63,10 @@ var NKDatetime = (function () {
                 _this.dateChange.emit(newDate);
             });
         }
-        if (!this.timepicker) {
+        else if (this.datepickerOptions === false) {
+            $('#' + this.idDatePicker).remove();
+        }
+        if (!this.timepicker && this.timepickerOptions !== false) {
             var options = jQuery.extend({ defaultTime: false }, this.timepickerOptions);
             this.timepicker = $('#' + this.idTimePicker).timepicker(options);
             this.timepicker
@@ -82,25 +85,34 @@ var NKDatetime = (function () {
                 }
                 if (!isDate(_this.date)) {
                     _this.date = new Date();
-                    _this.datepicker.datepicker('update', _this.date.toLocaleDateString('en'));
+                    if (_this.datepicker !== undefined) {
+                        _this.datepicker.datepicker('update', _this.date);
+                    }
                 }
                 _this.date.setHours(parseInt(hours));
                 _this.date.setMinutes(e.time.minutes);
                 _this.dateChange.emit(_this.date);
             });
         }
+        else if (this.timepickerOptions === false) {
+            $('#' + this.idTimePicker).parent().remove();
+        }
     };
     NKDatetime.prototype.updateModel = function (date) {
         // update date
-        this.datepicker.datepicker('update', date.toLocaleDateString('en'));
-        // update time
-        var hours = this.date.getHours();
-        if (this.timepickerOptions.showMeridian) {
-            // Convert 24 to 12 hour system
-            hours = (hours === 0 || hours === 12) ? 12 : hours % 12;
+        if (this.datepicker !== undefined) {
+            this.datepicker.datepicker('update', date);
         }
-        var meridian = this.date.getHours() >= 12 ? ' PM' : ' AM';
-        this.timepicker.timepicker('setTime', this.pad(hours) + ':' + this.date.getMinutes() + meridian);
+        // update time
+        if (this.timepicker !== undefined) {
+            var hours = this.date.getHours();
+            if (this.timepickerOptions.showMeridian) {
+                // Convert 24 to 12 hour system
+                hours = (hours === 0 || hours === 12) ? 12 : hours % 12;
+            }
+            var meridian = this.date.getHours() >= 12 ? ' PM' : ' AM';
+            this.timepicker.timepicker('setTime', this.pad(hours) + ':' + this.date.getMinutes() + meridian);
+        }
     };
     NKDatetime.prototype.pad = function (value) {
         return (value && value.toString().length < 2) ? '0' + value : value.toString();
