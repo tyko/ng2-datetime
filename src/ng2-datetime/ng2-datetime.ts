@@ -1,5 +1,5 @@
-import {Component, Output, Input, EventEmitter, HostListener, OnInit} from 'angular2/core';
-import {ControlValueAccessor, NgControl} from 'angular2/common';
+import {Component, Output, Input, EventEmitter, HostListener, OnInit} from '@angular/core';
+import {ControlValueAccessor, NgControl} from '@angular/common';
 
 @Component({
     selector: 'datetime',
