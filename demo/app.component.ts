@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {Control, DatePipe} from 'angular2/common';
+import {Component} from '@angular/core';
+import {DatePipe} from '@angular/common';
 import {NKDatetime} from '../src/ng2-datetime/ng2-datetime';
 
 @Component({

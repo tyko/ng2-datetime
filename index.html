@@ -8,36 +8,20 @@
     <link rel="stylesheet" href="demo/styles.css">
 
     <!-- 1. Load libraries -->
-    <!-- IE required polyfills, in this exact order -->
-    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>
-    <script src="https://code.angularjs.org/tools/system-polyfills.js"></script>
-    <!--<script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>-->
-
-    <script src="https://code.angularjs.org/2.0.0-beta.9/angular2-polyfills.min.js"></script>
-    <script src="https://code.angularjs.org/tools/system.js"></script>
-    <script src="https://code.angularjs.org/tools/typescript.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.9/Rx.min.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.9/angular2.dev.js"></script>
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
 
     <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
     <script src="src/vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <script src="src/vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
 
     <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
     <script>
-        System.config({
-            transpiler: 'typescript',
-            typescriptOptions: {
-                emitDecoratorMetadata: true,
-                experimentalDecorators: true
-            },
-            packages: {
-                'demo': {defaultExtension: 'ts'},
-                'src': {defaultExtension: 'ts'}
-            }
-        });
-        System.import('demo/main').then(null, console.error.bind(console));
+        System.import('demo').catch(function(err){ console.error(err); });
     </script>
 </head>
 

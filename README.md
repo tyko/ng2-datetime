@@ -1,6 +1,6 @@
-# ng2-datetime v1.0.1
+# ng2-datetime v1.0.2
 Datetime picker plugins wrapper for Angular2.
-Tested with __angular 2.0.0-beta.9__
+Tested with __angular 2.0.0-rc.1__
 
 ##### DEMO: https://nkalinov.github.io/ng2-datetime
 
