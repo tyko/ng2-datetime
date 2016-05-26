@@ -8,12 +8,12 @@ import {ControlValueAccessor, NgControl} from '@angular/common';
         <div id="{{idDatePicker}}" class="input-group date">
             <input type="text" class="form-control"/>
             <div class="input-group-addon">
-                <span class="glyphicon glyphicon-th"></span>
+                <span [ngClass]="datepickerOptions.icon || 'glyphicon glyphicon-th'"></span>
             </div>
         </div>
         <div class="input-group bootstrap-timepicker timepicker">
             <input id="{{idTimePicker}}" type="text" class="form-control input-small">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+            <span class="input-group-addon"><i [ngClass]="timepickerOptions.icon || 'glyphicon glyphicon-time'"></i></span>
         </div>
     </div>
     `

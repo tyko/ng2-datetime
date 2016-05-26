@@ -136,7 +136,7 @@ var NKDatetime = (function () {
     NKDatetime = __decorate([
         core_1.Component({
             selector: 'datetime',
-            template: "\n    <div class=\"form-inline\">\n        <div id=\"{{idDatePicker}}\" class=\"input-group date\">\n            <input type=\"text\" class=\"form-control\"/>\n            <div class=\"input-group-addon\">\n                <span class=\"glyphicon glyphicon-th\"></span>\n            </div>\n        </div>\n        <div class=\"input-group bootstrap-timepicker timepicker\">\n            <input id=\"{{idTimePicker}}\" type=\"text\" class=\"form-control input-small\">\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-time\"></i></span>\n        </div>\n    </div>\n    "
+            template: "\n    <div class=\"form-inline\">\n        <div id=\"{{idDatePicker}}\" class=\"input-group date\">\n            <input type=\"text\" class=\"form-control\"/>\n            <div class=\"input-group-addon\">\n                <span [ngClass]=\"datepickerOptions.icon || 'glyphicon glyphicon-th'\"></span>\n            </div>\n        </div>\n        <div class=\"input-group bootstrap-timepicker timepicker\">\n            <input id=\"{{idTimePicker}}\" type=\"text\" class=\"form-control input-small\">\n            <span class=\"input-group-addon\"><i [ngClass]=\"timepickerOptions.icon || 'glyphicon glyphicon-time'\"></i></span>\n        </div>\n    </div>\n    "
         }), 
         __metadata('design:paramtypes', [common_1.NgControl])
     ], NKDatetime);
