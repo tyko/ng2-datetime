@@ -14,7 +14,7 @@ var ng2_datetime_1 = require('../src/ng2-datetime/ng2-datetime');
 var AppComponent = (function () {
     function AppComponent() {
         this.date = new Date();
-        this.date2 = new Date('2016-06-08 10:00:00');
+        this.date2 = new Date(2016, 6, 8, 10, 0);
     }
     AppComponent.prototype.getDate = function (dt) {
         return dt && dt.getTime();

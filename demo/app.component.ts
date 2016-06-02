@@ -10,7 +10,7 @@ import {NKDatetime} from '../src/ng2-datetime/ng2-datetime';
 })
 export class AppComponent {
     date:Date = new Date();
-    date2:Date = new Date('2016-06-08 10:00:00');
+    date2:Date = new Date(2016, 6, 8, 10, 0);
     date3;
 
     public getDate(dt):number {
