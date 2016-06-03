@@ -53,7 +53,9 @@
     "phantomjs-prebuilt": "^2.1.5",
     "concurrently": "^2.0.0",
     "lite-server": "^2.2.0",
-    "typescript": "^1.8.10",
-    "typings": "^0.8.1"
+    "typescript": "^1.8.10"
+  },
+  "peerDependencies": {
+    "typings": "^1.0.4"
   }
 }
