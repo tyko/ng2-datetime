@@ -1,4 +1,4 @@
-import {Component, Output, Input, EventEmitter, HostListener, OnInit} from '@angular/core';
+import {Component, Output, Input, EventEmitter, HostListener, AfterViewInit, OnDestroy} from '@angular/core';
 import {ControlValueAccessor, NgControl} from '@angular/common';
 
 @Component({
@@ -16,9 +16,9 @@ import {ControlValueAccessor, NgControl} from '@angular/common';
             <span class="input-group-addon"><i [ngClass]="timepickerOptions.icon || 'glyphicon glyphicon-time'"></i></span>
         </div>
     </div>
-    `
+   `
 })
-export class NKDatetime implements ControlValueAccessor, OnInit {
+export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestroy {
     @Output()
     dateChange:EventEmitter<Date> = new EventEmitter();
     @Input('timepicker')
@@ -40,6 +40,20 @@ export class NKDatetime implements ControlValueAccessor, OnInit {
     onTouched = () => {
     };
 
+    constructor(ngControl:NgControl) {
+        ngControl.valueAccessor = this; // override valueAccessor
+    }
+
+    ngAfterViewInit() {
+        this.init();
+    }
+
+    ngOnDestroy() {
+        if (this.datepicker) {
+            this.datepicker.destroy();
+        }
+    }
+
     writeValue(value:any):void {
         this.date = value;
         if (isDate(this.date)) {
@@ -47,16 +61,6 @@ export class NKDatetime implements ControlValueAccessor, OnInit {
                 this.updateModel(this.date);
             }, 0);
         }
-    }
-
-    ngOnInit() {
-        setTimeout(() => {
-            this.init();
-        }, 0);
-    }
-
-    constructor(ngControl:NgControl) {
-        ngControl.valueAccessor = this; // override valueAccessor
     }
 
     registerOnChange(fn:(_:any) => void):void {

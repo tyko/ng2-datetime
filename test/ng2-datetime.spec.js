@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var testing_1 = require('angular2/testing');
 var browser_1 = require('angular2/platform/testing/browser');
 var ng2_datetime_1 = require('../src/ng2-datetime/ng2-datetime');
-var core_1 = require('angular2/core');
+var core_1 = require('@angular/core');
 testing_1.setBaseTestProviders(browser_1.TEST_BROWSER_PLATFORM_PROVIDERS, browser_1.TEST_BROWSER_APPLICATION_PROVIDERS);
 var DemoComponent = (function () {
     function DemoComponent() {

@@ -23,6 +23,14 @@ var NKDatetime = (function () {
         };
         ngControl.valueAccessor = this; // override valueAccessor
     }
+    NKDatetime.prototype.ngAfterViewInit = function () {
+        this.init();
+    };
+    NKDatetime.prototype.ngOnDestroy = function () {
+        if (this.datepicker) {
+            this.datepicker.destroy();
+        }
+    };
     NKDatetime.prototype.writeValue = function (value) {
         var _this = this;
         this.date = value;
@@ -31,12 +39,6 @@ var NKDatetime = (function () {
                 _this.updateModel(_this.date);
             }, 0);
         }
-    };
-    NKDatetime.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () {
-            _this.init();
-        }, 0);
     };
     NKDatetime.prototype.registerOnChange = function (fn) {
         this.onChange = fn;
@@ -136,7 +138,7 @@ var NKDatetime = (function () {
     NKDatetime = __decorate([
         core_1.Component({
             selector: 'datetime',
-            template: "\n    <div class=\"form-inline\">\n        <div id=\"{{idDatePicker}}\" class=\"input-group date\">\n            <input type=\"text\" class=\"form-control\"/>\n            <div class=\"input-group-addon\">\n                <span [ngClass]=\"datepickerOptions.icon || 'glyphicon glyphicon-th'\"></span>\n            </div>\n        </div>\n        <div class=\"input-group bootstrap-timepicker timepicker\">\n            <input id=\"{{idTimePicker}}\" type=\"text\" class=\"form-control input-small\">\n            <span class=\"input-group-addon\"><i [ngClass]=\"timepickerOptions.icon || 'glyphicon glyphicon-time'\"></i></span>\n        </div>\n    </div>\n    "
+            template: "\n    <div class=\"form-inline\">\n        <div id=\"{{idDatePicker}}\" class=\"input-group date\">\n            <input type=\"text\" class=\"form-control\"/>\n            <div class=\"input-group-addon\">\n                <span [ngClass]=\"datepickerOptions.icon || 'glyphicon glyphicon-th'\"></span>\n            </div>\n        </div>\n        <div class=\"input-group bootstrap-timepicker timepicker\">\n            <input id=\"{{idTimePicker}}\" type=\"text\" class=\"form-control input-small\">\n            <span class=\"input-group-addon\"><i [ngClass]=\"timepickerOptions.icon || 'glyphicon glyphicon-time'\"></i></span>\n        </div>\n    </div>\n   "
         }), 
         __metadata('design:paramtypes', [common_1.NgControl])
     ], NKDatetime);

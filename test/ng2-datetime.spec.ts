@@ -10,7 +10,7 @@ import {
 } from 'angular2/testing';
 import {TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS} from 'angular2/platform/testing/browser';
 import {NKDatetime} from '../src/ng2-datetime/ng2-datetime';
-import {Component, ViewChild} from 'angular2/core';
+import {Component, ViewChild} from '@angular/core';
 
 setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
 

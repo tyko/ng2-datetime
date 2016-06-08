@@ -1,4 +1,4 @@
-# ng2-datetime v1.0.3
+# ng2-datetime v1.1.0
 Datetime picker plugins wrapper for Angular2.
 Tested with __angular 2.0.0-rc.1__
 
@@ -48,7 +48,6 @@ Fork > Create > Pull request
 #### Thanks
 - @jdewit for the [timepicker plugin](https://github.com/jdewit/bootstrap-timepicker)
 - @eternicode for the [datepicker plugin](https://github.com/eternicode/bootstrap-datepicker)
-- @alexanza for the idea of removing one of the two pickers by passing `false` to the options
 
 ## TODO:
 - find out how to test implemented ControlValueAccessor interface
