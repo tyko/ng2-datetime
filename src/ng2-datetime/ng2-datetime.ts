@@ -20,7 +20,7 @@ import {ControlValueAccessor, NgControl} from '@angular/common';
 })
 export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestroy {
     @Output()
-    dateChange:EventEmitter<Date> = new EventEmitter();
+    dateChange:EventEmitter<Date> = new EventEmitter<Date>();
     @Input('timepicker')
     timepickerOptions:any = {};
     @Input('datepicker')
