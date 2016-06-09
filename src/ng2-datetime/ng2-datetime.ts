@@ -50,7 +50,7 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
 
     ngOnDestroy() {
         if (this.datepicker) {
-            this.datepicker.destroy();
+            this.datepicker.data().datepicker.destroy();
         }
     }
 
