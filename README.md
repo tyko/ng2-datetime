@@ -1,6 +1,7 @@
 # ng2-datetime
+[![npm version](https://badge.fury.io/js/ng2-datetime.svg)](https://badge.fury.io/js/ng2-datetime)
+
 Datetime picker plugins wrapper for Angular2.
-Tested with __angular 2.0.0-rc.1__
 
 ##### DEMO: https://nkalinov.github.io/ng2-datetime
 
@@ -50,5 +51,4 @@ Fork > Create > Pull request
 - @eternicode for the [datepicker plugin](https://github.com/eternicode/bootstrap-datepicker)
 
 ## TODO:
-- find out how to test implemented ControlValueAccessor interface
-- test jQuery plugins init and events
+- test ControlValueAccessor

@@ -28,7 +28,34 @@ var NKDatetime = (function () {
     };
     NKDatetime.prototype.ngOnDestroy = function () {
         if (this.datepicker) {
-            this.datepicker.destroy();
+            this.datepicker.datepicker('destroy');
+        }
+        if (this.timepicker) {
+            this.timepicker.timepicker('remove');
+        }
+    };
+    NKDatetime.prototype.ngOnChanges = function (changes) {
+        if (changes) {
+            if (changes['datepickerOptions'] && this.datepicker) {
+                this.datepicker.datepicker('destroy');
+                if (changes['datepickerOptions'].currentValue) {
+                    this.datepicker = null;
+                    this.init();
+                }
+                else if (changes['datepickerOptions'].currentValue === false) {
+                    this.datepicker.remove();
+                }
+            }
+            if (changes['timepickerOptions'] && this.timepicker) {
+                this.timepicker.timepicker('remove');
+                if (changes['timepickerOptions'].currentValue) {
+                    this.timepicker = null;
+                    this.init();
+                }
+                else if (changes['timepickerOptions'].currentValue === false) {
+                    this.timepicker.parent().remove();
+                }
+            }
         }
     };
     NKDatetime.prototype.writeValue = function (value) {

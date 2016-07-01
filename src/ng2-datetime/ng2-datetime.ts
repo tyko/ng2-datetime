@@ -1,4 +1,7 @@
-import {Component, Output, Input, EventEmitter, HostListener, AfterViewInit, OnDestroy} from '@angular/core';
+import {
+    Component, Output, Input, EventEmitter, HostListener, AfterViewInit, OnDestroy,
+    SimpleChanges, OnChanges
+} from '@angular/core';
 import {ControlValueAccessor, NgControl} from '@angular/common';
 
 @Component({
@@ -18,7 +21,7 @@ import {ControlValueAccessor, NgControl} from '@angular/common';
     </div>
    `
 })
-export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestroy {
+export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestroy, OnChanges {
     @Output()
     dateChange:EventEmitter<Date> = new EventEmitter<Date>();
     @Input('timepicker')
@@ -50,7 +53,35 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
 
     ngOnDestroy() {
         if (this.datepicker) {
-            this.datepicker.data().datepicker.destroy();
+            this.datepicker.datepicker('destroy');
+        }
+        if (this.timepicker) {
+            this.timepicker.timepicker('remove');
+        }
+    }
+
+    ngOnChanges(changes:SimpleChanges) {
+        if (changes) {
+            if (changes['datepickerOptions'] && this.datepicker) {
+                this.datepicker.datepicker('destroy');
+
+                if (changes['datepickerOptions'].currentValue) {
+                    this.datepicker = null;
+                    this.init();
+                } else if (changes['datepickerOptions'].currentValue === false) {
+                    this.datepicker.remove();
+                }
+            }
+            if (changes['timepickerOptions'] && this.timepicker) {
+                this.timepicker.timepicker('remove');
+
+                if (changes['timepickerOptions'].currentValue) {
+                    this.timepicker = null;
+                    this.init();
+                } else if (changes['timepickerOptions'].currentValue === false) {
+                    this.timepicker.parent().remove();
+                }
+            }
         }
     }
 
