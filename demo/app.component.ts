@@ -10,8 +10,16 @@ import {NKDatetime} from '../src/ng2-datetime/ng2-datetime';
 })
 export class AppComponent {
     date:Date = new Date();
-    date2:Date = new Date(2016, 6, 8, 10, 0);
+    date2:Date = new Date();
     date3;
+    datepickerOpts = {
+        startDate: new Date(),
+        autoclose: true,
+        todayBtn: 'linked',
+        todayHighlight: true,
+        assumeNearbyYear: true,
+        format: 'D, d MM yyyy'
+    };
 
     public getDate(dt):number {
         return dt && dt.getTime();

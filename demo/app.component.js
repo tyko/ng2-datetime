@@ -14,7 +14,15 @@ var ng2_datetime_1 = require('../src/ng2-datetime/ng2-datetime');
 var AppComponent = (function () {
     function AppComponent() {
         this.date = new Date();
-        this.date2 = new Date(2016, 6, 8, 10, 0);
+        this.date2 = new Date();
+        this.datepickerOpts = {
+            startDate: new Date(),
+            autoclose: true,
+            todayBtn: 'linked',
+            todayHighlight: true,
+            assumeNearbyYear: true,
+            format: 'D, d MM yyyy'
+        };
     }
     AppComponent.prototype.getDate = function (dt) {
         return dt && dt.getTime();

@@ -115,7 +115,7 @@ var NKDatetime = (function () {
                 if (!isDate(_this.date)) {
                     _this.date = new Date();
                     if (_this.datepicker !== undefined) {
-                        _this.datepicker.datepicker('update', _this.date.toLocaleDateString('en-US'));
+                        _this.datepicker.datepicker('update', _this.date.toUTCString());
                     }
                 }
                 _this.date.setHours(parseInt(hours));
@@ -128,11 +128,11 @@ var NKDatetime = (function () {
         }
     };
     NKDatetime.prototype.updateModel = function (date) {
-        // update date
+        // update datepicker
         if (this.datepicker !== undefined) {
-            this.datepicker.datepicker('update', date.toLocaleDateString('en-US'));
+            this.datepicker.datepicker('update', date.toUTCString());
         }
-        // update time
+        // update timepicker
         if (this.timepicker !== undefined) {
             var hours = this.date.getHours();
             if (this.timepickerOptions.showMeridian) {

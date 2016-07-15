@@ -104,7 +104,7 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
 
     //////////////////////////////////
 
-    private init() {
+    private init():void {
         if (!this.datepicker && this.datepickerOptions !== false) {
             this.datepicker = (<any>$('#' + this.idDatePicker)).datepicker(this.datepickerOptions);
             this.datepicker
@@ -147,7 +147,7 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
                         this.date = new Date();
 
                         if (this.datepicker !== undefined) {
-                            this.datepicker.datepicker('update', this.date.toLocaleDateString('en-US'));
+                            this.datepicker.datepicker('update', this.date.toUTCString());
                         }
                     }
                     this.date.setHours(parseInt(hours));
@@ -159,26 +159,25 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
         }
     }
 
-    private updateModel(date?:Date) {
-        // update date
+    private updateModel(date?:Date):void {
+        // update datepicker
         if (this.datepicker !== undefined) {
-            this.datepicker.datepicker('update', date.toLocaleDateString('en-US'));
+            this.datepicker.datepicker('update', date.toUTCString());
         }
 
-        // update time
+        // update timepicker
         if (this.timepicker !== undefined) {
             let hours = this.date.getHours();
             if (this.timepickerOptions.showMeridian) {
                 // Convert 24 to 12 hour system
                 hours = (hours === 0 || hours === 12) ? 12 : hours % 12;
             }
-            let meridian = this.date.getHours() >= 12 ? ' PM' : ' AM';
-
+            const meridian = this.date.getHours() >= 12 ? ' PM' : ' AM';
             this.timepicker.timepicker('setTime', this.pad(hours) + ':' + this.date.getMinutes() + meridian);
         }
     }
 
-    private pad(value:any) {
+    private pad(value:any):string {
         return (value && value.toString().length < 2) ? '0' + value : value.toString();
     }
 }
