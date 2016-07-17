@@ -148,7 +148,7 @@ var NKDatetime = (function () {
     };
     __decorate([
         core_1.Output(), 
-        __metadata('design:type', core_1.EventEmitter)
+        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
     ], NKDatetime.prototype, "dateChange", void 0);
     __decorate([
         core_1.Input('timepicker'), 
@@ -167,9 +167,10 @@ var NKDatetime = (function () {
             selector: 'datetime',
             template: "\n    <div class=\"form-inline\">\n        <div id=\"{{idDatePicker}}\" class=\"input-group date\">\n            <input type=\"text\" class=\"form-control\"/>\n            <div class=\"input-group-addon\">\n                <span [ngClass]=\"datepickerOptions.icon || 'glyphicon glyphicon-th'\"></span>\n            </div>\n        </div>\n        <div class=\"input-group bootstrap-timepicker timepicker\">\n            <input id=\"{{idTimePicker}}\" type=\"text\" class=\"form-control input-small\">\n            <span class=\"input-group-addon\"><i [ngClass]=\"timepickerOptions.icon || 'glyphicon glyphicon-time'\"></i></span>\n        </div>\n    </div>\n   "
         }), 
-        __metadata('design:paramtypes', [common_1.NgControl])
+        __metadata('design:paramtypes', [(typeof (_b = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _b) || Object])
     ], NKDatetime);
     return NKDatetime;
+    var _a, _b;
 }());
 exports.NKDatetime = NKDatetime;
 var id = 0;
