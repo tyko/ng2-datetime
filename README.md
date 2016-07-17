@@ -8,9 +8,9 @@ Datetime picker plugins wrapper for Angular2.
 ## Dependencies
 - [Bootstrap3 (__CSS only__)](http://getbootstrap.com/)
 - [jQuery 2.x](http://jquery.com/)
-- [Bootstrap-timepicker __(JS+CSS)__](http://jdewit.github.io/bootstrap-timepicker/)
-`npm install --save bootstrap-datepicker` or use the bundled version from `src/vendor/bootstrap-datepicker`
 - [Bootstrap-datepicker __(JS+CSS)__](http://eternicode.github.io/bootstrap-datepicker/)
+`npm install --save bootstrap-datepicker` or use the bundled version from `src/vendor/bootstrap-datepicker`
+- [Bootstrap-timepicker __(JS+CSS)__](http://jdewit.github.io/bootstrap-timepicker/)
 `npm install --save bootstrap-timepicker` or use the bundled version from `src/vendor/bootstrap-timepicker`
 
 ## Installation
