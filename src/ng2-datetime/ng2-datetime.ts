@@ -2,7 +2,7 @@ import {
     Component, Output, Input, EventEmitter, HostListener, AfterViewInit, OnDestroy,
     SimpleChanges, OnChanges
 } from '@angular/core';
-import {ControlValueAccessor, NgControl} from '@angular/common';
+import {ControlValueAccessor, NgControl} from '@angular/forms';
 
 @Component({
     selector: 'datetime',
@@ -162,7 +162,7 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
     private updateModel(date?:Date):void {
         // update datepicker
         if (this.datepicker !== undefined) {
-            this.datepicker.datepicker('update', date.toUTCString());
+            this.datepicker.datepicker('update', this.date);
         }
 
         // update timepicker
