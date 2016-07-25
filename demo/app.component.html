@@ -21,23 +21,6 @@
     <section class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">
-                Embeded in angular forms
-            </h3>
-        </div>
-        <div class="panel-body">
-            <p>
-                <code>&lt;datetime [(ngModel)]="date">&lt;/datetime></code>
-            </p>            
-            <form class="form-horizontal" #simpleForm="ngForm">		        		                            
-                    <datetime [(ngModel)]="date" name="formDate" #formDate="ngModel"></datetime>                    		        
-            </form>
-            <datetime [(ngModel)]="date"></datetime>
-            <h5><strong>ngModel:</strong> {{getDate(date) | date: "medium"}}</h5>
-        </div>
-    </section>    
-    <section class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">
                 Options&nbsp;&nbsp;-&nbsp;
                 <a href="http://bootstrap-datepicker.readthedocs.org/en/latest/options.html" target="_blank">
                     datepicker options <i class="fa fa-external-link"></i>
