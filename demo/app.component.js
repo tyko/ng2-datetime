@@ -13,10 +13,17 @@ var common_1 = require('@angular/common');
 var ng2_datetime_1 = require('../src/ng2-datetime/ng2-datetime');
 var AppComponent = (function () {
     function AppComponent() {
-        this.date = new Date();
-        this.date2 = new Date();
+        /*
+            Remember if you crate new Date second parameter in Date constructor is month
+            Integer value representing the month, beginning with 0 for January to 11 for December.
+    
+            So new Date(2016,3,4) is equal to 2016-04-04
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+        */
+        this.date = new Date(2016, 3, 4);
+        this.date2 = new Date(2016, 3, 4);
         this.datepickerOpts = {
-            startDate: new Date(),
+            startDate: new Date(2016, 3, 4),
             autoclose: true,
             todayBtn: 'linked',
             todayHighlight: true,
