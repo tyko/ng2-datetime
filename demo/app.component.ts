@@ -9,26 +9,34 @@ import {NKDatetime} from '../src/ng2-datetime/ng2-datetime';
     templateUrl: 'demo/app.component.html'
 })
 export class AppComponent {
-    /*
-        Remember if you crate new Date second parameter in Date constructor is month
-        Integer value representing the month, beginning with 0 for January to 11 for December.
-
-        So new Date(2016,3,4) is equal to 2016-04-04
-        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
-    */
-    date:Date = new Date(2016,3,4);
-    date2:Date = new Date(2016,3,4);
+    date: Date = new Date();
+    date2: Date = new Date();
     date3;
-    datepickerOpts = {
-        startDate: new Date(2016,3,4);
+    date4: Date = new Date();
+    datepickerOpts: any = {
+        startDate: new Date(),
         autoclose: true,
         todayBtn: 'linked',
         todayHighlight: true,
         assumeNearbyYear: true,
         format: 'D, d MM yyyy'
     };
+    date5 = new Date();
+    dateFrom;
+    dateTo;
+    datepickerToOpts: any = {};
 
-    public getDate(dt):number {
+    handleDateFromChange(dateFrom) {
+        // update the model
+        this.dateFrom = dateFrom;
+
+        // do not mutate the object or angular won't detect the changes
+        this.datepickerToOpts = {
+            startDate: dateFrom
+        };
+    }
+
+    public getDate(dt): number {
         return dt && dt.getTime();
     }
 }
