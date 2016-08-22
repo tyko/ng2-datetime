@@ -65,8 +65,17 @@
                         <th>Description</th>
                     </tr>
                     <tr>
-                        <td>hasClearButton (false)</td>
+                        <td><strong>hasClearButton</strong> (false)</td>
                         <td>clear button</td>
+                    </tr>
+                    <tr>
+                        <td><strong>readonly</strong> (false)</td>
+                        <td>adds the readonly property to the datepicker input and sets the
+                            <a href="http://bootstrap-datepicker.readthedocs.io/en/latest/options.html#enableonreadonly"
+                               target="_blank">
+                                enableOnReadonly option
+                            </a>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -83,8 +92,12 @@
                         <th>Description</th>
                     </tr>
                     <tr>
-                        <td>icon (glyphicon glyphicon-th)</td>
+                        <td><strong>icon</strong> (glyphicon glyphicon-th)</td>
                         <td>datepicker button icon</td>
+                    </tr>
+                    <tr>
+                        <td><strong>placeholder</strong></td>
+                        <td>datepicker input placeholder ('Choose date')</td>
                     </tr>
                 </table>
             </div>
@@ -101,8 +114,12 @@
                         <th>Description</th>
                     </tr>
                     <tr>
-                        <td>icon (glyphicon glyphicon-time)</td>
+                        <td><strong>icon</strong> (glyphicon glyphicon-time)</td>
                         <td>timepicker button icon</td>
+                    </tr>
+                    <tr>
+                        <td><strong>placeholder ('Set time')</strong></td>
+                        <td>timepicker input placeholder</td>
                     </tr>
                 </table>
             </div>
@@ -119,8 +136,10 @@
             <br>
             In your component:<br>
             <code>
+                date2: Date = new Date(2016, 5, 10);
+
                 datepickerOpts = {
-                startDate: new Date(),
+                startDate: new Date(2016, 5, 10),
                 autoclose: true,
                 todayBtn: 'linked',
                 todayHighlight: true,
@@ -137,17 +156,18 @@
     <section class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">
-                Using Font Awesome
+                Buttons icons (FontAwesome)
             </h3>
         </div>
         <div class="panel-body">
             <p>
-                <code>&lt;datetime [(ngModel)]="date4" [timepicker]="{icon: 'fa fa-clock-o'}" [datepicker]="{icon: 'fa
+                <code>&lt;datetime [(ngModel)]="date4" [timepicker]="{icon: 'fa fa-clock-o'}"
+                    [datepicker]="{icon: 'fa
                     fa-calendar'}">&lt;/datetime></code>
             </p>
             <datetime [(ngModel)]="date4" [timepicker]="{icon: 'fa fa-clock-o'}"
                       [datepicker]="{icon: 'fa fa-calendar'}"></datetime>
-            <h5><strong>ngModel:</strong> {{getDate(date) | date: "medium"}}</h5>
+            <h5><strong>ngModel:</strong> {{getDate(date4) | date: "medium"}}</h5>
         </div>
     </section>
     <h2>Examples</h2>

@@ -13,11 +13,9 @@ var common_1 = require('@angular/common');
 var ng2_datetime_1 = require('../src/ng2-datetime/ng2-datetime');
 var AppComponent = (function () {
     function AppComponent() {
-        this.date = new Date();
-        this.date2 = new Date();
-        this.date4 = new Date();
+        this.date2 = new Date(2016, 5, 10);
         this.datepickerOpts = {
-            startDate: new Date(),
+            startDate: new Date(2016, 5, 10),
             autoclose: true,
             todayBtn: 'linked',
             todayHighlight: true,

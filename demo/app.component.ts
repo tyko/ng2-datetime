@@ -9,21 +9,21 @@ import {NKDatetime} from '../src/ng2-datetime/ng2-datetime';
     templateUrl: 'demo/app.component.html'
 })
 export class AppComponent {
-    date: Date = new Date();
-    date2: Date = new Date();
-    date3;
-    date4: Date = new Date();
+    date: Date;
+    date2: Date = new Date(2016, 5, 10);
+    date3: Date;
+    date4: Date;
     datepickerOpts: any = {
-        startDate: new Date(),
+        startDate: new Date(2016, 5, 10),
         autoclose: true,
         todayBtn: 'linked',
         todayHighlight: true,
         assumeNearbyYear: true,
         format: 'D, d MM yyyy'
     };
-    date5 = new Date();
-    dateFrom;
-    dateTo;
+    date5: Date = new Date();
+    dateFrom: Date;
+    dateTo: Date;
     datepickerToOpts: any = {};
 
     handleDateFromChange(dateFrom) {
