@@ -9,8 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
-var ng2_datetime_1 = require('../src/ng2-datetime/ng2-datetime');
 var AppComponent = (function () {
     function AppComponent() {
         this.date2 = new Date(2016, 5, 10);
@@ -39,8 +37,6 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            directives: [ng2_datetime_1.NKDatetime],
-            pipes: [common_1.DatePipe],
             templateUrl: 'demo/app.component.html'
         }), 
         __metadata('design:paramtypes', [])

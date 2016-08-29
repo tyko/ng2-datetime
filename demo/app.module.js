@@ -12,14 +12,14 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
-var ng2_datetime_1 = require('../src/ng2-datetime/ng2-datetime');
+var ng2_datetime_module_1 = require('../src/ng2-datetime/ng2-datetime.module');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             declarations: [app_component_1.AppComponent],
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, ng2_datetime_1.NKDatetimeModule],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, ng2_datetime_module_1.NKDatetimeModule],
             bootstrap: [app_component_1.AppComponent],
         }), 
         __metadata('design:paramtypes', [])

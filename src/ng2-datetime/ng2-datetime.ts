@@ -2,9 +2,12 @@ import {
     Component, Output, Input, EventEmitter, HostListener, AfterViewInit, OnDestroy,
     SimpleChanges, OnChanges, NgModule
 } from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule} from '@angular/common'
 import {ControlValueAccessor, NgControl, FormsModule} from '@angular/forms';
 import {TimepickerEvent} from './timepicker-event-interface';
+
+declare var $: any;
+declare var jQuery: any;
 
 @Component({
     selector: 'datetime',
@@ -241,9 +244,8 @@ function isDate(obj: any) {
     return Object.prototype.toString.call(obj) === '[object Date]';
 }
 
-
 @NgModule({
-    imports: [CommonModule, FormsModule],
+    imports: [FormsModule, CommonModule],
     exports: [NKDatetime],
     declarations: [NKDatetime]
 })

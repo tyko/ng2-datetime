@@ -215,7 +215,7 @@ var NKDatetimeModule = (function () {
     }
     NKDatetimeModule = __decorate([
         core_1.NgModule({
-            imports: [common_1.CommonModule, forms_1.FormsModule],
+            imports: [forms_1.FormsModule, common_1.CommonModule],
             exports: [NKDatetime],
             declarations: [NKDatetime]
         }), 
