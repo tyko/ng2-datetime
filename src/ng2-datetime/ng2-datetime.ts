@@ -1,8 +1,9 @@
 import {
     Component, Output, Input, EventEmitter, HostListener, AfterViewInit, OnDestroy,
-    SimpleChanges, OnChanges
+    SimpleChanges, OnChanges, NgModule
 } from '@angular/core';
-import {ControlValueAccessor, NgControl} from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {ControlValueAccessor, NgControl, FormsModule} from '@angular/forms';
 import {TimepickerEvent} from './timepicker-event-interface';
 
 @Component({
@@ -126,10 +127,10 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
     checkEmptyValue(e: any) {
         const value = e.target.value;
         if (value === '' && (
-                this.timepickerOptions === false ||
-                this.datepickerOptions === false ||
-                (this.timeModel === '' && this.dateModel === '')
-            )) {
+            this.timepickerOptions === false ||
+            this.datepickerOptions === false ||
+            (this.timeModel === '' && this.dateModel === '')
+        )) {
             this.dateChange.emit(null);
         }
     }
@@ -146,7 +147,7 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
 
     private init(): void {
         if (!this.datepicker && this.datepickerOptions !== false) {
-            let options = jQuery.extend({enableOnReadonly: !this.readonly}, this.datepickerOptions);
+            let options = jQuery.extend({ enableOnReadonly: !this.readonly }, this.datepickerOptions);
             this.datepicker = (<any>$('#' + this.idDatePicker)).datepicker(options);
             this.datepicker
                 .on('changeDate', (e: any) => {
@@ -168,7 +169,7 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
         }
 
         if (!this.timepicker && this.timepickerOptions !== false) {
-            let options = jQuery.extend({defaultTime: false}, this.timepickerOptions);
+            let options = jQuery.extend({ defaultTime: false }, this.timepickerOptions);
             this.timepicker = (<any>$('#' + this.idTimePicker)).timepicker(options);
             this.timepicker
                 .on('changeTime.timepicker', (e: TimepickerEvent) => {
@@ -239,3 +240,11 @@ function uniqueId(prefix: string): string {
 function isDate(obj: any) {
     return Object.prototype.toString.call(obj) === '[object Date]';
 }
+
+
+@NgModule({
+    imports: [CommonModule, FormsModule],
+    exports: [NKDatetime],
+    declarations: [NKDatetime]
+})
+export class NKDatetimeModule { }
