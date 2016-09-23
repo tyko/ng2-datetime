@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'my-app',
@@ -32,7 +32,7 @@ export class AppComponent {
         };
     }
 
-    public getDate(dt): number {
+    getDate(dt): number {
         return dt && dt.getTime();
     }
 }

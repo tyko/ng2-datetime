@@ -1,13 +1,9 @@
 import {
     Component, Output, Input, EventEmitter, HostListener, AfterViewInit, OnDestroy,
-    SimpleChanges, OnChanges, NgModule
+    SimpleChanges, OnChanges
 } from '@angular/core';
-import {CommonModule} from '@angular/common'
-import {ControlValueAccessor, NgControl, FormsModule} from '@angular/forms';
-import {TimepickerEvent} from './timepicker-event-interface';
-
-declare var $: any;
-declare var jQuery: any;
+import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { TimepickerEvent } from './timepicker-event-interface';
 
 @Component({
     selector: 'datetime',
@@ -130,10 +126,10 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
     checkEmptyValue(e: any) {
         const value = e.target.value;
         if (value === '' && (
-            this.timepickerOptions === false ||
-            this.datepickerOptions === false ||
-            (this.timeModel === '' && this.dateModel === '')
-        )) {
+                this.timepickerOptions === false ||
+                this.datepickerOptions === false ||
+                (this.timeModel === '' && this.dateModel === '')
+            )) {
             this.dateChange.emit(null);
         }
     }
@@ -176,7 +172,7 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
             this.timepicker = (<any>$('#' + this.idTimePicker)).timepicker(options);
             this.timepicker
                 .on('changeTime.timepicker', (e: TimepickerEvent) => {
-                    let {meridian, hours} = e.time;
+                    let { meridian, hours } = e.time;
 
                     if (meridian) {
                         // has meridian -> convert 12 to 24h
@@ -243,10 +239,3 @@ function uniqueId(prefix: string): string {
 function isDate(obj: any) {
     return Object.prototype.toString.call(obj) === '[object Date]';
 }
-
-@NgModule({
-    imports: [FormsModule, CommonModule],
-    exports: [NKDatetime],
-    declarations: [NKDatetime]
-})
-export class NKDatetimeModule { }

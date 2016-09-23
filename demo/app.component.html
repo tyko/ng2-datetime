@@ -11,9 +11,7 @@
             </h3>
         </div>
         <div class="panel-body">
-            <p>
-                <code>&lt;datetime [(ngModel)]="date">&lt;/datetime></code>
-            </p>
+            <pre><code>&lt;datetime [(ngModel)]="date">&lt;/datetime></code></pre>
             <datetime [(ngModel)]="date"></datetime>
             <h5><strong>ngModel:</strong> {{getDate(date) | date: "medium"}}</h5>
         </div>
@@ -27,9 +25,7 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <p>
-                        <code>&lt;datetime [datepicker]="false" [(ngModel)]="date3">&lt;/datetime></code>
-                    </p>
+                    <pre><code>&lt;datetime [datepicker]="false" [(ngModel)]="date3">&lt;/datetime></code></pre>
                     <datetime [datepicker]="false" [(ngModel)]="date3"></datetime>
                     <h5><strong>ngModel:</strong> {{getDate(date3) | date: "medium"}}</h5>
                 </div>
@@ -43,16 +39,13 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <p>
-                        <code>&lt;datetime [timepicker]="false" [(ngModel)]="date3">&lt;/datetime></code>
-                    </p>
+                    <pre><code>&lt;datetime [timepicker]="false" [(ngModel)]="date3">&lt;/datetime></code></pre>
                     <datetime [timepicker]="false" [(ngModel)]="date3"></datetime>
                     <h5><strong>ngModel:</strong> {{getDate(date3) | date: "medium"}}</h5>
                 </div>
             </section>
         </div>
     </div>
-    <!--
     <h2>Options</h2>
     <section>
         <div class="row">
@@ -129,25 +122,17 @@
     <section class="panel panel-default">
         <div class="panel-heading"><h3 class="panel-title">Setting options</h3></div>
         <div class="panel-body">
-            <code>
-                &lt;datetime [timepicker]="{ showMeridian: false, minuteStep: 1 }"
-                [datepicker]="datepickerOpts"
-                [(ngModel)]="date2">&lt;/datetime>
-            </code>
-            <br>
+            <pre><code>&lt;datetime [timepicker]="&#123; showMeridian: false, minuteStep: 1 &#125;" [datepicker]="datepickerOpts" [(ngModel)]="date2">&lt;/datetime></code></pre>
             In your component:<br>
-            <code>
-                date2: Date = new Date(2016, 5, 10);
-
-                datepickerOpts = {
-                startDate: new Date(2016, 5, 10),
-                autoclose: true,
-                todayBtn: 'linked',
-                todayHighlight: true,
-                assumeNearbyYear: true,
-                format: 'D, d MM yyyy'
-                }
-            </code>
+            <pre><code>date2: Date = new Date(2016, 5, 10);
+datepickerOpts = &#123;
+    startDate: new Date(2016, 5, 10),
+    autoclose: true,
+    todayBtn: 'linked',
+    todayHighlight: true,
+    assumeNearbyYear: true,
+    format: 'D, d MM yyyy'
+&#125;</code></pre>
             <datetime [(ngModel)]="date2"
                       [timepicker]="{showMeridian: false, minuteStep: 1}"
                       [datepicker]="datepickerOpts"></datetime>
@@ -161,11 +146,7 @@
             </h3>
         </div>
         <div class="panel-body">
-            <p>
-                <code>&lt;datetime [(ngModel)]="date4" [timepicker]="{icon: 'fa fa-clock-o'}"
-                    [datepicker]="{icon: 'fa
-                    fa-calendar'}">&lt;/datetime></code>
-            </p>
+            <pre><code>&lt;datetime [(ngModel)]="date4" [timepicker]="&#123; icon: 'fa fa-clock-o' &#125;" [datepicker]="&#123; icon: 'fa fa-calendar' &#125;">&lt;/datetime></code></pre>
             <datetime [(ngModel)]="date4" [timepicker]="{icon: 'fa fa-clock-o'}"
                       [datepicker]="{icon: 'fa fa-calendar'}"></datetime>
             <h5><strong>ngModel:</strong> {{getDate(date4) | date: "medium"}}</h5>
@@ -175,18 +156,8 @@
     <section class="panel panel-default">
         <div class="panel-heading"><h3 class="panel-title">From-To (WIP)</h3></div>
         <div class="panel-body">
-            <p>
-                <code>
-                    &lt;datetime [ngModel]="dateFrom"
-                    (ngModelChange)="handleDateFromChange($event)"
-                    [timepicker]="false">&lt;/datetime>
-                </code><br>
-                <code>
-                    &lt;datetime [(ngModel)]="dateTo"
-                    [timepicker]="false"
-                    [datepicker]="datepickerToOpts">&lt;/datetime>
-                </code>
-            </p>
+            <pre><code>&lt;datetime [ngModel]="dateFrom" (ngModelChange)="handleDateFromChange($event)" [timepicker]="false">&lt;/datetime></code></pre>
+            <pre><code>&lt;datetime [(ngModel)]="dateTo" [timepicker]="false" [datepicker]="datepickerToOpts">&lt;/datetime></code></pre>
             <datetime [ngModel]="dateFrom"
                       style="float: left"
                       (ngModelChange)="handleDateFromChange($event)"
@@ -201,14 +172,9 @@
     <section class="panel panel-default">
         <div class="panel-heading"><h3 class="panel-title">Clear button</h3></div>
         <div class="panel-body">
-            <p>
-                <code>
-                    &lt;datetime [(ngModel)]="date5" [hasClearButton]="true">&lt;/datetime>
-                </code>
-            </p>
+            <pre><code>&lt;datetime [(ngModel)]="date5" [hasClearButton]="true">&lt;/datetime></code></pre>
             <datetime [(ngModel)]="date5" [hasClearButton]="true"></datetime>
             <h5><strong>ngModel:</strong> {{getDate(date5) | date: "medium"}}</h5>
         </div>
     </section>
-    -->
 </main>

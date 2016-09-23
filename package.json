@@ -3,6 +3,7 @@
   "version": "1.1.5",
   "description": "Bootstrap datetime picker for Angular2",
   "main": "ng2-datetime.js",
+  "typings": "ng2-datetime.d.ts",
   "keywords": [
     "angular2",
     "ng2",
@@ -15,11 +16,11 @@
   "author": "Nikola Kalinov <hello@nkalinov.com> (http://nkalinov.com)",
   "scripts": {
     "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
     "lite": "lite-server",
     "postinstall": "typings install",
-    "test": "node ./node_modules/.bin/karma start"
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings"
   },
   "license": "ISC",
   "repository": {
@@ -27,17 +28,17 @@
     "url": "https://github.com/nkalinov/ng2-datetime.git"
   },
   "dependencies": {
-    "@angular/common": "2.0.0-rc.5",
-    "@angular/compiler": "2.0.0-rc.5",
-    "@angular/core": "2.0.0-rc.5",
-    "@angular/forms": "^0.3.0",
-    "@angular/platform-browser": "2.0.0-rc.5",
-    "@angular/platform-browser-dynamic": "^2.0.0-rc.5",
-    "core-js": "^2.4.0",
+    "@angular/common": "2.0.0",
+    "@angular/compiler": "2.0.0",
+    "@angular/core": "2.0.0",
+    "@angular/forms": "2.0.0",
+    "@angular/platform-browser": "2.0.0",
+    "@angular/platform-browser-dynamic": "2.0.0",
+    "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.3",
-    "rxjs": "5.0.0-beta.6",
+    "rxjs": "5.0.0-beta.12",
     "systemjs": "0.19.27",
-    "zone.js": "^0.6.12",
+    "zone.js": "^0.6.23",
     "jquery": "^2.2.1",
     "bootstrap": "^3.3.6",
     "bootstrap-datepicker": "^1.6.0",
@@ -54,8 +55,5 @@
     "concurrently": "^2.0.0",
     "lite-server": "^2.2.0",
     "typescript": "^1.8.10"
-  },
-  "peerDependencies": {
-    "typings": "*"
   }
 }

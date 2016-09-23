@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="src/vendor/bootstrap-timepicker/bootstrap-timepicker.min.css">
     <link rel="stylesheet" href="src/vendor/bootstrap-datepicker/bootstrap-datepicker3.min.css">
     <link rel="stylesheet" href="demo/styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/idea.min.css">
 
     <!-- 1. Load libraries -->
     <!-- Polyfill(s) for older browsers -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.0/shim.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.6.12/zone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/shim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.6.23/zone.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reflect-metadata/0.1.3/Reflect.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.31/system.js"></script>
 
@@ -20,6 +21,7 @@
             integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script src="src/vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <script src="src/vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
 
     <!-- 2. Configure SystemJS -->
     <script src="systemjs.config.js"></script>
@@ -27,6 +29,7 @@
         System.import('demo').catch(function (err) {
             console.error(err);
         });
+        hljs.initHighlightingOnLoad();
     </script>
 </head>
 
