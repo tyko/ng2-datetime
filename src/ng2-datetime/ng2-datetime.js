@@ -182,11 +182,11 @@ var NKDatetime = (function () {
     ], NKDatetime.prototype, "datepickerOptions", void 0);
     __decorate([
         core_1.Input('hasClearButton'), 
-        __metadata('design:type', Object)
+        __metadata('design:type', Boolean)
     ], NKDatetime.prototype, "hasClearButton", void 0);
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Object)
+        __metadata('design:type', Boolean)
     ], NKDatetime.prototype, "readonly", void 0);
     __decorate([
         core_1.HostListener('dateChange', ['$event']), 

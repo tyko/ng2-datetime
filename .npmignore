@@ -1,4 +1,5 @@
 .idea
+systemjs.config.js
 
 demo
 node_modules

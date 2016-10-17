@@ -3,7 +3,7 @@
 
 Datetime picker (plugins wrapper) for Angular2.
 
-##### DEMO: https://nkalinov.github.io/ng2-datetime
+##### Demo and docs: https://nkalinov.github.io/ng2-datetime
 
 ## Dependencies
 - [Bootstrap3 (__CSS only__)](http://getbootstrap.com/)
@@ -20,18 +20,18 @@ Datetime picker (plugins wrapper) for Angular2.
 
 ## Usage
 1. import some way or another the required dependencies
-2. `import {NKDatetime} from 'ng2-datetime/ng2-datetime';`
-3. Add to your component's directives property
+2. `import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime';`
+3. Add it to your app module's `imports` property
 ```
-@Component({
+@NgModule({
     ...
-    directives: [NKDatetime],
+    imports: [NKDatetimeModule, ...],
     ...
 })
 ```
 4. Use it: `<datetime [(ngModel)]="date"></datetime>`
 
-See the [__DEMO__](https://nkalinov.github.io/ng2-datetime) and it [__source__](https://github.com/nkalinov/ng2-datetime/tree/master/demo) for more information.
+See the [__DEMO__](https://nkalinov.github.io/ng2-datetime) and it [__source__](https://github.com/nkalinov/ng2-datetime/tree/master/demo) for more info and available options.
 
 ## Contributing
 Fork > Create > Pull request
@@ -39,6 +39,3 @@ Fork > Create > Pull request
 ## Thanks
 - @jdewit for the [timepicker plugin](https://github.com/jdewit/bootstrap-timepicker)
 - @eternicode for the [datepicker plugin](https://github.com/eternicode/bootstrap-datepicker)
-
-### TODO:
-- test ControlValueAccessor
