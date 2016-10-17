@@ -42,10 +42,10 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
     datepickerOptions: any = {};
 
     @Input('hasClearButton')
-    hasClearButton = false;
+    hasClearButton: boolean = false;
 
     @Input()
-    readonly = null;
+    readonly: boolean = null;
 
     date: Date; // ngModel
     dateModel: string;
