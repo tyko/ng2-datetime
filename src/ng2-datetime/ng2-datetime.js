@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var forms_1 = require('@angular/forms');
+var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
 var NKDatetime = (function () {
     function NKDatetime(ngControl) {
         this.dateChange = new core_1.EventEmitter();
@@ -17,6 +17,7 @@ var NKDatetime = (function () {
         this.datepickerOptions = {};
         this.hasClearButton = false;
         this.readonly = null;
+        this.required = null;
         this.idDatePicker = uniqueId('q-datepicker_');
         this.idTimePicker = uniqueId('q-timepicker_');
         this.onChange = function (_) {
@@ -101,10 +102,8 @@ var NKDatetime = (function () {
                 var newDate = e.date;
                 if (isDate(_this.date) && isDate(newDate)) {
                     // get hours/minutes
-                    var h = _this.date.getHours();
-                    var m = _this.date.getMinutes();
-                    newDate.setHours(h);
-                    newDate.setMinutes(m);
+                    newDate.setHours(_this.date.getHours());
+                    newDate.setMinutes(_this.date.getMinutes());
                 }
                 _this.date = newDate;
                 _this.dateChange.emit(newDate);
@@ -168,39 +167,43 @@ var NKDatetime = (function () {
     NKDatetime.prototype.pad = function (value) {
         return value.toString().length < 2 ? '0' + value : value.toString();
     };
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', core_1.EventEmitter)
-    ], NKDatetime.prototype, "dateChange", void 0);
-    __decorate([
-        core_1.Input('timepicker'), 
-        __metadata('design:type', Object)
-    ], NKDatetime.prototype, "timepickerOptions", void 0);
-    __decorate([
-        core_1.Input('datepicker'), 
-        __metadata('design:type', Object)
-    ], NKDatetime.prototype, "datepickerOptions", void 0);
-    __decorate([
-        core_1.Input('hasClearButton'), 
-        __metadata('design:type', Boolean)
-    ], NKDatetime.prototype, "hasClearButton", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Boolean)
-    ], NKDatetime.prototype, "readonly", void 0);
-    __decorate([
-        core_1.HostListener('dateChange', ['$event']), 
-        __metadata('design:type', Object)
-    ], NKDatetime.prototype, "onChange", void 0);
-    NKDatetime = __decorate([
-        core_1.Component({
-            selector: 'datetime',
-            template: "\n    <div class=\"form-inline\">\n        <div id=\"{{idDatePicker}}\" class=\"input-group date\">\n            <input type=\"text\" class=\"form-control\"\n                   [attr.readonly]=\"readonly\"\n                   [attr.placeholder]=\"datepickerOptions.placeholder || 'Choose date'\"\n                   [(ngModel)]=\"dateModel\"\n                   (keyup)=\"checkEmptyValue($event)\"/>\n            <div class=\"input-group-addon\">\n                <span [ngClass]=\"datepickerOptions.icon || 'glyphicon glyphicon-th'\"></span>\n            </div>\n        </div>\n        <div class=\"input-group bootstrap-timepicker timepicker\">\n            <input id=\"{{idTimePicker}}\" type=\"text\" class=\"form-control input-small\" \n                   [attr.readonly]=\"readonly\"\n                   [attr.placeholder]=\"timepickerOptions.placeholder || 'Set time'\"\n                   [(ngModel)]=\"timeModel\"\n                   (keyup)=\"checkEmptyValue($event)\">\n            <span class=\"input-group-addon\"><i [ngClass]=\"timepickerOptions.icon || 'glyphicon glyphicon-time'\"></i></span>\n        </div>\n        <button *ngIf=\"hasClearButton\" type=\"button\" (click)=\"onClearClick()\">Clear</button>\n    </div>\n   "
-        }), 
-        __metadata('design:paramtypes', [forms_1.NgControl])
-    ], NKDatetime);
     return NKDatetime;
 }());
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], NKDatetime.prototype, "dateChange", void 0);
+__decorate([
+    core_1.Input('timepicker'),
+    __metadata("design:type", Object)
+], NKDatetime.prototype, "timepickerOptions", void 0);
+__decorate([
+    core_1.Input('datepicker'),
+    __metadata("design:type", Object)
+], NKDatetime.prototype, "datepickerOptions", void 0);
+__decorate([
+    core_1.Input('hasClearButton'),
+    __metadata("design:type", Boolean)
+], NKDatetime.prototype, "hasClearButton", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], NKDatetime.prototype, "readonly", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], NKDatetime.prototype, "required", void 0);
+__decorate([
+    core_1.HostListener('dateChange', ['$event']),
+    __metadata("design:type", Object)
+], NKDatetime.prototype, "onChange", void 0);
+NKDatetime = __decorate([
+    core_1.Component({
+        selector: 'datetime',
+        template: "\n    <div class=\"form-inline\">\n        <div id=\"{{idDatePicker}}\" class=\"input-group date\">\n            <input type=\"text\" class=\"form-control\"\n                   [attr.readonly]=\"readonly\"\n                   [attr.required]=\"required\"\n                   [attr.placeholder]=\"datepickerOptions.placeholder || 'Choose date'\"\n                   [(ngModel)]=\"dateModel\"\n                   (keyup)=\"checkEmptyValue($event)\"/>\n            <div class=\"input-group-addon\">\n                <span [ngClass]=\"datepickerOptions.icon || 'glyphicon glyphicon-th'\"></span>\n            </div>\n        </div>\n        <div class=\"input-group bootstrap-timepicker timepicker\">\n            <input id=\"{{idTimePicker}}\" type=\"text\" class=\"form-control input-small\" \n                   [attr.readonly]=\"readonly\"\n                   [attr.required]=\"required\"\n                   [attr.placeholder]=\"timepickerOptions.placeholder || 'Set time'\"\n                   [(ngModel)]=\"timeModel\"\n                   (keyup)=\"checkEmptyValue($event)\">\n            <span class=\"input-group-addon\"><i [ngClass]=\"timepickerOptions.icon || 'glyphicon glyphicon-time'\"></i></span>\n        </div>\n        <button *ngIf=\"hasClearButton\" type=\"button\" (click)=\"onClearClick()\">Clear</button>\n    </div>\n   "
+    }),
+    __metadata("design:paramtypes", [forms_1.NgControl])
+], NKDatetime);
 exports.NKDatetime = NKDatetime;
 var id = 0;
 function uniqueId(prefix) {

@@ -33,6 +33,7 @@ import { TimepickerEvent } from './timepicker-event-interface';
     </div>
    `
 })
+
 export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestroy, OnChanges {
     @Output()
     dateChange: EventEmitter<Date> = new EventEmitter<Date>();
@@ -48,7 +49,7 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
 
     @Input()
     readonly: boolean = null;
-     
+
     @Input()
     required: boolean = null;
 
@@ -159,10 +160,8 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
 
                     if (isDate(this.date) && isDate(newDate)) {
                         // get hours/minutes
-                        var h = this.date.getHours();
-                        var m = this.date.getMinutes();
-                        newDate.setHours(h);
-                        newDate.setMinutes(m);
+                        newDate.setHours(this.date.getHours());
+                        newDate.setMinutes(this.date.getMinutes());
                     }
 
                     this.date = newDate;
