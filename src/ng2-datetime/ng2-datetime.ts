@@ -12,6 +12,7 @@ import { TimepickerEvent } from './timepicker-event-interface';
         <div id="{{idDatePicker}}" class="input-group date">
             <input type="text" class="form-control"
                    [attr.readonly]="readonly"
+                   [attr.required]="required"
                    [attr.placeholder]="datepickerOptions.placeholder || 'Choose date'"
                    [(ngModel)]="dateModel"
                    (keyup)="checkEmptyValue($event)"/>
@@ -22,6 +23,7 @@ import { TimepickerEvent } from './timepicker-event-interface';
         <div class="input-group bootstrap-timepicker timepicker">
             <input id="{{idTimePicker}}" type="text" class="form-control input-small" 
                    [attr.readonly]="readonly"
+                   [attr.required]="required"
                    [attr.placeholder]="timepickerOptions.placeholder || 'Set time'"
                    [(ngModel)]="timeModel"
                    (keyup)="checkEmptyValue($event)">
@@ -46,6 +48,9 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
 
     @Input()
     readonly: boolean = null;
+     
+    @Input()
+    required: boolean = null;
 
     date: Date; // ngModel
     dateModel: string;
