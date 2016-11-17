@@ -1,2 +1,13 @@
 .idea/
 node_modules/
+
+src/app/app.component.js
+src/app/app.component.js.map
+src/app/app.module.js
+src/app/app.module.js.map
+src/main.js
+src/main.js.map
+src/polyfills.js
+src/polyfills.js.map
+src/vendor.js
+src/vendor.js.map
