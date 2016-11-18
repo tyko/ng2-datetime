@@ -201,13 +201,15 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
         } else if (this.timepickerOptions === false) {
             (<any>$('#' + this.idTimePicker)).parent().remove();
         }
+        
+        this.updateModel(this.date);
     }
 
     private updateModel(date: Date): void {
         this.updateDatepicker(date);
 
         // update timepicker
-        if (this.timepicker !== undefined) {
+        if (this.timepicker !== undefined && isDate(date)) {
             let hours = date.getHours();
             if (this.timepickerOptions.showMeridian) {
                 // Convert 24 to 12 hour system
