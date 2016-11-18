@@ -201,7 +201,7 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
         } else if (this.timepickerOptions === false) {
             (<any>$('#' + this.idTimePicker)).parent().remove();
         }
-        
+
         this.updateModel(this.date);
     }
 
@@ -226,9 +226,9 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
         }
     }
 
-    private updateDatepicker(value?: any) {
-        if (this.datepicker !== undefined) {
-            this.datepicker.datepicker('update', value);
+    private updateDatepicker(date?: any) {
+        if (this.datepicker !== undefined && isDate(date)) {
+            this.datepicker.datepicker('update', date);
         }
     }
 
