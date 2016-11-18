@@ -50,8 +50,8 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
     datepicker: any;
     timepicker: any;
 
-    private idDatePicker: string = uniqueId('q-datepicker_');
-    private idTimePicker: string = uniqueId('q-timepicker_');
+    idDatePicker: string = uniqueId('q-datepicker_');
+    idTimePicker: string = uniqueId('q-timepicker_');
 
     @HostListener('dateChange', ['$event'])
     onChange = (_: any) => {
