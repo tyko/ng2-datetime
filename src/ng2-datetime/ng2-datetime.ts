@@ -227,7 +227,7 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
     }
 
     private updateDatepicker(date?: any) {
-        if (this.datepicker !== undefined && isDate(date)) {
+        if (this.datepicker !== undefined) {
             this.datepicker.datepicker('update', date);
         }
     }
