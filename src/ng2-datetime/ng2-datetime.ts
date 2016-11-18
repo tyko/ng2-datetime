@@ -29,29 +29,18 @@ import { TimepickerEvent } from './timepicker-event-interface';
                    (keyup)="checkEmptyValue($event)">
             <span class="input-group-addon"><i [ngClass]="timepickerOptions.icon || 'glyphicon glyphicon-time'"></i></span>
         </div>
-        <button *ngIf="hasClearButton" type="button" (click)="onClearClick()">Clear</button>
+        <button *ngIf="hasClearButton" type="button" (click)="clearModels()">Clear</button>
     </div>
    `
 })
 
 export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestroy, OnChanges {
-    @Output()
-    dateChange: EventEmitter<Date> = new EventEmitter<Date>();
-
-    @Input('timepicker')
-    timepickerOptions: any = {};
-
-    @Input('datepicker')
-    datepickerOptions: any = {};
-
-    @Input('hasClearButton')
-    hasClearButton: boolean = false;
-
-    @Input()
-    readonly: boolean = null;
-
-    @Input()
-    required: boolean = null;
+    @Output() dateChange: EventEmitter<Date> = new EventEmitter<Date>();
+    @Input('timepicker') timepickerOptions: any = {};
+    @Input('datepicker') datepickerOptions: any = {};
+    @Input('hasClearButton') hasClearButton: boolean = false;
+    @Input() readonly: boolean = null;
+    @Input() required: boolean = null;
 
     date: Date; // ngModel
     dateModel: string;
@@ -118,6 +107,8 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
             setTimeout(() => {
                 this.updateModel(this.date);
             }, 0);
+        } else {
+            this.clearModels();
         }
     }
 
@@ -140,7 +131,7 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
         }
     }
 
-    onClearClick() {
+    clearModels() {
         this.dateChange.emit(null);
         if (this.timepicker) {
             this.timepicker.timepicker('setTime', null);
