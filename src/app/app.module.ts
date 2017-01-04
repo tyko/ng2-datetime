@@ -5,9 +5,9 @@ import { AppComponent }   from './app.component';
 import { NKDatetimeModule } from '../ng2-datetime/ng2-datetime.module';
 
 @NgModule({
-    declarations: [AppComponent],
     imports: [BrowserModule, FormsModule, NKDatetimeModule],
     bootstrap: [AppComponent],
+    declarations: [AppComponent]
 })
 export class AppModule {
 }
