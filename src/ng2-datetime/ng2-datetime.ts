@@ -8,7 +8,6 @@ import { TimepickerEvent } from './timepicker-event-interface';
 @Component({
     selector: 'datetime',
     template: `
-    <div class="form-inline">
         <div id="{{idDatePicker}}" class="input-group date">
             <input type="text" class="form-control"
                    [attr.readonly]="readonly"
@@ -30,7 +29,6 @@ import { TimepickerEvent } from './timepicker-event-interface';
             <span class="input-group-addon"><i [ngClass]="timepickerOptions.icon || 'glyphicon glyphicon-time'"></i></span>
         </div>
         <button *ngIf="hasClearButton" type="button" (click)="clearModels()">Clear</button>
-    </div>
    `
 })
 
