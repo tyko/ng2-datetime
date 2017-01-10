@@ -1,7 +1,7 @@
 # ng2-datetime
 [![npm version](https://badge.fury.io/js/ng2-datetime.svg)](https://badge.fury.io/js/ng2-datetime)
 
-Datetime picker (plugins wrapper) for Angular2.
+Fork of Datetime picker (plugins wrapper) for Angular2.
 
 ##### Demo and docs: https://nkalinov.github.io/ng2-datetime
 
@@ -33,8 +33,6 @@ Datetime picker (plugins wrapper) for Angular2.
 
 See the [__DEMO__](https://nkalinov.github.io/ng2-datetime) and it [__source__](https://github.com/nkalinov/ng2-datetime/tree/master/demo) for more info and available options.
 
-## Contributing
-Fork > Create > Pull request
 
 ## Thanks
 - @jdewit for the [timepicker plugin](https://github.com/jdewit/bootstrap-timepicker)
