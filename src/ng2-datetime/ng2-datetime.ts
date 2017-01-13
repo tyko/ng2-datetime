@@ -13,6 +13,7 @@ import { TimepickerEvent } from './timepicker-event-interface';
                    [attr.readonly]="readonly"
                    [attr.required]="required"
                    [attr.placeholder]="datepickerOptions.placeholder || 'Choose date'"
+                   [style.z-index]="0"
                    [(ngModel)]="dateModel"
                    (keyup)="checkEmptyValue($event)"/>
             <div class="input-group-addon">
